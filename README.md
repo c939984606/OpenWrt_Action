@@ -2,7 +2,7 @@
 [![releases](https://img.shields.io/badge/support-x86-blue?style=flat&logo=rss)](https://github.com/c939984606/OpenWrt_Auto_Action/releases)  [![Lean](https://img.shields.io/badge/SourceCode-Lean-green?style=flat&logo=GitHub)](https://github.com/coolsnowwolf/lede) [![releases](https://img.shields.io/badge/UpdateCheck-blueviolet?style=flat&logo=Checkmarx)](https://github.com/c939984606/OpenWrt_Auto_Action/releases) [![Action](https://img.shields.io/badge/GithubAction-Actions-important?style=flat&logo=GitHubActions)](https://github.com/c939984606/OpenWrt_Auto_Action/actions)
 # Lean Openwrt GitHubAction
 
-#### ➤➤ 根据源码更新自动编译:
+#### 🎯 根据源码更新自动编译:
 
 ```
 后台管理地址：192.168.10.1
@@ -10,7 +10,7 @@
 ```
 ![image](source/login.gif)
 
-#### ➤➤ 包含内容:
+#### 🎯 包含内容:
 
 ##### 部分常用插件如下：
 
