@@ -2,7 +2,6 @@
 name: Build-OpenWrt_X64_For_xxb
 
 on:
-  repository_dispatch:
   workflow_dispatch:
   schedule:
      - cron: 0 20 * * *
@@ -107,7 +106,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "🎯 当前编译线程数：$(nproc)"
-        make -j$(nproc)
+        make -j6
         echo "::set-output name=status::success"
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
