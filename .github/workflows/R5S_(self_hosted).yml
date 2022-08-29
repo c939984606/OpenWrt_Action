@@ -119,14 +119,16 @@ jobs:
       continue-on-error: true
       run: |
         cd openwrt/bin/targets/rockchip/armv8
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         rm -rf packages  
-        sudo apt-get -y install s3fs python3-pip
-        sudo pip install aliyunpan
+        #sudo apt-get -y install s3fs python3-pip
+        #sudo pip install aliyunpan
         mkdir -p upload_tmp/R5S/$(date +%Y%m%d)
         find . -type f -name "*rootfs*" -print0 | xargs -0r rm  
         find . -type f -name "*.gz" | xargs cp -t ./upload_tmp/R5S/$(date +%Y%m%d)
         cp -rf $GITHUB_WORKSPACE/openwrt/bin/packages ./upload_tmp/R5S/$(date +%Y%m%d)
         mkdir -p upload
+        
         # 🎯 上传到 Minio
         #echo "${{ secrets.password }}" > ./passwd-s3fs
         #chmod 600 ./passwd-s3fs
@@ -135,13 +137,14 @@ jobs:
         #cp -rf ./upload_tmp/* ./upload/OpenWrt
         #sudo umount -f $PWD/upload
         echo
+        
         # 🎯 上传到阿里云盘
         echo -e "🚩   开始同步固件到阿里云网盘：/Share/Frimware/OpenWrt_Auto_Action 目录"
         refresh_token=`curl -s ${{ secrets.refresh_token }}|awk -F ':' '{print $2}'`
         echo -e "refresh_token: '$refresh_token'"  >  ~/.config/aliyunpan.yaml
         aliyunpan-cli upload upload_tmp/*  /Share/Frimware/OS/Router/OpenWrt
         echo        
-        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+
         echo "::set-output name=status::success"
       
     - name: Upload firmware directory
