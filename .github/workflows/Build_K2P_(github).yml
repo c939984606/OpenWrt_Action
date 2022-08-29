@@ -1,5 +1,5 @@
 ##
-name: Build-OpenWrt_K2P
+name: Build_K2P_(github)
 
 on:
   repository_dispatch:
