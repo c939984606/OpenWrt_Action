@@ -1,5 +1,5 @@
 ##
-name: Build_K2P_(github)
+name: K2P_(github)
 
 on:
   repository_dispatch:
