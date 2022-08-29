@@ -3,6 +3,8 @@ name: x86_64_xxb_(github)
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: 0 15 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
