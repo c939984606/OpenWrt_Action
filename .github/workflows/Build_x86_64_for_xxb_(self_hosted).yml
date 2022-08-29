@@ -1,10 +1,8 @@
 ##
-name: Build-OpenWrt_X64_For_xxb
+name: Build_x86_64_for_xxb_(self_hosted)
 
 on:
   workflow_dispatch:
-  schedule:
-     - cron: 0 20 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
