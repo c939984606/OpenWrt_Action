@@ -126,7 +126,8 @@ jobs:
         mkdir -p upload_tmp/R5S/$(date +%Y%m%d)
         find . -type f -name "*rootfs*" -print0 | xargs -0r rm  
         find . -type f -name "*.gz" | xargs cp -t ./upload_tmp/R5S/$(date +%Y%m%d)
-        cp -rf $GITHUB_WORKSPACE/openwrt/bin/packages ./upload_tmp/R5S/$(date +%Y%m%d)
+        tar -zcvf packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/packages
+        mv packages.tar.gz ./upload_tmp/R5S/$(date +%Y%m%d)
         mkdir -p upload
         
         # 🎯 上传到 Minio

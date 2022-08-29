@@ -131,7 +131,8 @@ jobs:
         find . -type f -name "*rootfs*" -print0 | xargs -0r rm
         find . -type f -name "*kernel.bin" -print0 | xargs -0r rm        
         find . -type f -name "*.img" | xargs cp -t ./upload_tmp/x86_64/$(date +%Y%m%d)
-        cp -rf $GITHUB_WORKSPACE/openwrt/bin/packages ./upload_tmp/x86_64/$(date +%Y%m%d)
+        tar -zcvf packages.tar.gz $GITHUB_WORKSPACE/openwrt/bin/packages
+        mv packages.tar.gz ./upload_tmp/x86_64/$(date +%Y%m%d)
         mkdir -p upload
 
         # 🎯 上传到 Minio
