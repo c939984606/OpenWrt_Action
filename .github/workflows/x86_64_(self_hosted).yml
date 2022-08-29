@@ -1,5 +1,5 @@
 ##
-name: Build_x86_64_(self_hosted)
+name: x86_64_(self_hosted)
 
 on:
   workflow_dispatch:
