@@ -1,5 +1,5 @@
 ##
-name: Build_x86_64_for_xxb_(self_hosted)
+name: x86_64_xxb_(self_hosted)
 
 on:
   workflow_dispatch:
