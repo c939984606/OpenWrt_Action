@@ -1,5 +1,5 @@
 ##
-name: Build_OpenWrt_R5S
+name: R5S_(self_hosted)
 
 on:
   workflow_dispatch:
