@@ -2,6 +2,9 @@
 
 cd $1
 
+# 修改内核版本
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.19/g' ./target/linux/x86/Makefile
+
 # 修改hostname
 sed -i 's/OpenWrt/NanoPi-R5S/g' package/base-files/files/bin/config_generate
 
