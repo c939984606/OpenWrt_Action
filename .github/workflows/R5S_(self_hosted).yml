@@ -39,7 +39,7 @@ jobs:
           "msgtype" : "textcard",
           "agentid" : ${{ secrets.AGENTID }},
           "textcard" : {
-            "title" : "➤➤ 编译开始: ",
+            "title" : "🍒 编译开始: ",
             "description" : "<div class=\"highlight\">🎯 固件名称：OpenWrt '"${RELEASE_TAG}"'\n🎯 开始时间：'"${starttime}"'\n🎯 编译状态：进行中。。。 😋💐</div>",
             "url" : "https://github.com/c939984606/OpenWrt_Auto_Action/actions",
             "btntxt":"点击打开"
@@ -257,7 +257,7 @@ jobs:
           "msgtype" : "textcard",
           "agentid" : ${{ secrets.AGENTID }},
           "textcard" : {
-            "title" : "➤➤ 编译完成: ",
+            "title" : "✅ 编译完成: ",
             "description" : "<div class=\"highlight\">🎯 固件名称：OpenWrt '"${RELEASE_TAG}"'\n🎯 结束时间：'"${endtime}"'\n🎯 编译用时：'"${h}"''"${m}"''"${s}"'\n🎯 编译状态：Success✅ 😋💐</div>",
             "url" : "'"${{ secrets.downloadurl }}"'",
             "btntxt":"点击打开"
