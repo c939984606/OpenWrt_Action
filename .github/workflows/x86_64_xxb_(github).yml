@@ -61,17 +61,17 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         
-        sudo mkdir -p /home/workdir/$RELEASE_TAG && sudo chmod -R 777 /home/workdir/$RELEASE_TAG
-        sudo chown $USER:$GROUPS /home/workdir/$RELEASE_TAG
-        sudo rm -rf /home/workdir/$RELEASE_TAG/*
+        sudo mkdir -p /home/workdir/x86_64_xxb && sudo chmod -R 777 /home/workdir/x86_64_xxb
+        sudo chown $USER:$GROUPS /home/workdir/x86_64_xxb
+        sudo rm -rf /home/workdir/x86_64_xxb/*
         ls -al && df -lh
         
     - name: Clone source code
-      working-directory: /home/workdir/$RELEASE_TAG
+      working-directory: /home/workdir/x86_64_xxb
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /home/workdir/$RELEASE_TAG/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /home/workdir/x86_64_xxb/openwrt $GITHUB_WORKSPACE/openwrt
      
     - name: Load custom feeds
       run: |
