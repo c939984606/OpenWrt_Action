@@ -3,8 +3,6 @@ name: R5S_(self_hosted)
 
 on:
   workflow_dispatch:
-  schedule:
-     - cron: 0 5 * * *
      
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
