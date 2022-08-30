@@ -93,7 +93,7 @@ jobs:
       id: package
       run: |
         mkdir -p $GITHUB_WORKSPACE/openwrt/dl
-        cp -rf $DL_BACKUP $GITHUB_WORKSPACE/openwrt
+        #cp -rf $DL_BACKUP $GITHUB_WORKSPACE/openwrt
         cd $GITHUB_WORKSPACE/openwrt
         make defconfig
         make download -j8
