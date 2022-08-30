@@ -160,35 +160,35 @@ jobs:
 
         echo "## Update content" >> release.txt
 
-        echo "<details> <summary> Lean Openwrt Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
+        echo "<details> <summary> 🎯  Lean Openwrt Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
         echo "<br>" >> release.txt
         echo "" >> release.txt
         echo -e "> $(git -C openwrt log -n $COMMIT_LOG_NUM)" >> release.txt
         echo "" >> release.txt
         echo "</details>" >> release.txt
         
-        echo "<details> <summary> Lean Package Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
+        echo "<details> <summary> 🎯  Lean Package Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
         echo "<br>" >> release.txt
         echo "" >> release.txt        
         echo -e "> $(git -C openwrt/feeds/packages log -n $COMMIT_LOG_NUM)" >> release.txt
         echo "" >> release.txt
         echo "</details>" >> release.txt
         
-        echo "<details> <summary> Lean Luci Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
+        echo "<details> <summary> 🎯  Lean Luci Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
         echo "<br>" >> release.txt
         echo "" >> release.txt 
         echo -e "> $(git -C openwrt/feeds/luci log -n $COMMIT_LOG_NUM)" >> release.txt
         echo "" >> release.txt
         echo "</details>" >> release.txt 
         
-        echo "<details> <summary> Openwrt routing Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
+        echo "<details> <summary> 🎯  Openwrt routing Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
         echo "<br>" >> release.txt
         echo "" >> release.txt 
         echo -e "> $(git -C openwrt/feeds/routing log -n $COMMIT_LOG_NUM)" >> release.txt
         echo "" >> release.txt
         echo "</details>" >> release.txt 
         
-        echo "<details> <summary> Openwrt telephony Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
+        echo "<details> <summary> 🎯  Openwrt telephony Commit Top $COMMIT_LOG_NUM </summary>" >> release.txt
         echo "<br>" >> release.txt
         echo "" >> release.txt 
         echo -e "> $(git -C openwrt/feeds/telephony log -n $COMMIT_LOG_NUM)" >> release.txt
