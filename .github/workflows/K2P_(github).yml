@@ -48,7 +48,7 @@ jobs:
           "textcard" : {
             "title" : "🍒 编译开始: ",
             "description" : "<div class=\"highlight\">🎯 固件名称：OpenWrt '"${RELEASE_TAG}"'\n🎯 开始时间：'"${starttime}"'\n🎯 编译状态：进行中。。。 😋💐</div>",
-            "url" : "https://github.com/c939984606/OpenWrt_Auto_Action/actions",
+            "url" : "https://github.com/c939984606/OpenWrt_Action/actions",
             "btntxt":"点击打开"
           },
         "enable_id_trans": 0,
