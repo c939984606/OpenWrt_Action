@@ -51,7 +51,7 @@
 		local eth_info = luci.sys.exec("ethinfo")
 
 		local user_info = luci.sys.exec("cat /proc/net/arp | grep '0x2' | wc -l") or 0
-
+		
 		local cpu_usage = (luci.sys.exec("expr 100 - $(top -n 1 | grep 'CPU:' | awk -F '%' '{print$4}' | awk -F ' ' '{print$2}')") or "6") .. "%"
 
 		local rv = {
@@ -146,17 +146,17 @@
 					.format(bss[p+'rate'] / 1000, bss[p+'mhz']),
 		    ht = bss[p+'ht'], vht = bss[p+'vht'],
 			mhz = bss[p+'mhz'], nss = bss[p+'nss'],
-			mcs = bss[p+'mcs'], sgi = bss[p+'short_gi'];
+			mcs = bss[p+'mcs'], sgi = bss[p+'short_gi'],
 			he = bss[p+'he'], he_gi = bss[p+'he_gi'],
 			he_dcm = bss[p+'he_dcm'];
-			
+
 		if (ht || vht) {
 			if (vht) s += ', VHT-MCS %d'.format(mcs);
 			if (nss) s += ', VHT-NSS %d'.format(nss);
 			if (ht)  s += ', MCS %s'.format(mcs);
 			if (sgi) s += ', <%:Short GI%>';
 		}
-
+		
 		if (he) {
 			s += ', HE-MCS %d'.format(mcs);
 			if (nss) s += ', HE-NSS %d'.format(nss);
@@ -187,6 +187,20 @@
 			hosts = data;
 		});
 	}
+
+	var compare = function (prop) {
+		return function (obj1, obj2) {
+			var val1 = Number(obj1[prop].replaceAll(".",""));
+			var val2 = Number(obj2[prop].replaceAll(".",""));
+			if (val1 < val2) {
+				return -1;
+			} else if (val1 > val2) {
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+	};
 
 	XHR.poll(1, '<%=REQUEST_URI%>', { status: 1 },
 		function(x, info)
@@ -381,6 +395,7 @@
 			var ls = document.getElementById('lease_status_table');
 			if (ls)
 			{
+				info.leases = info.leases.sort(compare("ipaddr"));
 				/* clear all rows */
 				while( ls.rows.length > 1 )
 					ls.rows[0].parentNode.deleteRow(1);
@@ -714,8 +729,6 @@
 		}
 	);
 //]]></script>
-
-<h2 name="content"><%:Status%></h2>
 <style>
 .my a {
         display:block; /* 把行内元素 变成 块级元素 */
@@ -723,9 +736,9 @@
         height:37px; /* 盒子 高度与td高度一致 */
         text-decoration: none;
         vertical-align: middle;/* 使a的文本垂直居中 */
-        
+
     }
- 
+
 .my{
      width:92px;   
      text-align: left;     /* 使a的文本水平居中 */
@@ -734,9 +747,11 @@
      line-height:37px; /* 使a的文本垂直居中 要与a标签的高度一致 */
 }
 </style>
+
+<h2 name="content"><%:Status%></h2>
+
 <fieldset class="cbi-section">
 	<legend><%:System%></legend>
-
 	<table width="100%" cellspacing="10">
 		<tr><td width="33%"><%:Hostname%></td><td><%=luci.sys.hostname() or "?"%></td></tr>
 		<tr><td width="33%"><%:Model%></td><td><%=pcdata(boardinfo.model or "?")%> <%=luci.sys.exec("cat /etc/bench.log") or " "%></td></tr>
@@ -750,20 +765,22 @@
 		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
 		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
 		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
+
 		<tr><td width="33%"><%:Compile_time %></td><td><%=luci.sys.exec("cat /etc/Compile_time") or " "%></td></tr>
-        <tr><td width="33%"><%:Compile_author %></td><td class="my"><a href="https://blog.istar.run"><%=luci.sys.exec("cat /etc/Compile_author") or " "%></a></td></tr>
-        <tr><td width="33%"><%:Frimware_dl %></td><td class="my"><a href="https://files.istar.run/Aliyun/OS/Router/OpenWrt"><%=luci.sys.exec("cat /etc/Frimware_dl") or " "%></a></td></tr>
+        	<tr><td width="33%"><%:Compile_author %></td><td class="my"><a href="https://blog.istar.run"><%=luci.sys.exec("cat /etc/Compile_author") or " "%></a></td></tr>
+        	<tr><td width="33%"><%:Frimware_dl %></td><td class="my"><a href="https://files.istar.run/Aliyun/OS/Router/OpenWrt"><%=luci.sys.exec("cat /etc/Frimware_dl") or " "%></a></td></tr>
+
 	</table>
 </fieldset>
 
 <fieldset class="cbi-section">
 	<legend><%:Weather%></legend>
-
 	<table width="100%" cellspacing="10">
 		<tr><td width="33%"><%:Local Weather%></td><td > <iframe width="800" scrolling="no" height="120" frameborder="0" allowtransparency="true" src="//i.tianqi.com/index.php?c=code&id=19&icon=3&temp=1&num=5&site=12"></iframe>	
 	</table>
 </fieldset>
-
+	</table>
+</fieldset>
 
 <fieldset class="cbi-section">
 	<legend><%:Memory%></legend>
