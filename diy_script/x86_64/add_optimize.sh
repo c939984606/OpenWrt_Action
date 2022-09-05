@@ -21,7 +21,7 @@ sed -i "s/luci-theme-bootstrap/luci-theme-argonne/g" ./feeds/luci/collections/lu
 
 #修改x86首页
 #  rm -rf package/lean/autocore/files/index.htm
-wget -O x86_index.htm https://raw.githubusercontent.com/c939984606/OpenWrt_Auto_Action/master/Other/x86_index.htm
+wget -O x86_index.htm https://raw.githubusercontent.com/c939984606/OpenWrt_Action/master/Other/x86_index.htm
 cp -rf ./x86_index.htm package/lean/autocore/files/x86/index.htm
 base_zh_po_if=$(grep -o "#天气预报" feeds/luci/modules/luci-base/po/zh-cn/base.po)
 if [[ "$base_zh_po_if" == "#天气预报" ]]; then
