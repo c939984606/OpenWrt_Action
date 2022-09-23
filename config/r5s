@@ -7634,4 +7634,4 @@ CONFIG_PACKAGE_usb-modeswitch=y
 # end of Font-Utils
 # end of Xorg
 
-CONFIG_OVERRIDE_PKGS="adguardhome aliyundrive-webdav luci-app-aliyundrive-webdav luci-app-dockerman luci-app-pushbot luci-app-serverchan luci-lib-docker smartdns"
+CONFIG_OVERRIDE_PKGS="adguardhome aliyundrive-webdav dns2tcp hysteria lua-neturl luci-app-aliyundrive-webdav luci-app-dockerman luci-app-pushbot luci-app-serverchan luci-app-ssr-plus luci-lib-docker naiveproxy sagernet-core shadowsocks-rust shadowsocksr-libev simple-obfs smartdns tcping trojan v2ray-core v2ray-geodata v2ray-plugin v2raya xray-core xray-plugin"
