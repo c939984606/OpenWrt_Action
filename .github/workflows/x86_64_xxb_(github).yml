@@ -160,7 +160,7 @@ jobs:
         
         # 🎯 上传到阿里云盘
         echo -e "🚩   开始同步固件到阿里云网盘：/Share/Frimware/OpenWrt_Auto_Action 目录"
-        refresh_token=`curl -s ${{ secrets.refresh_token }}|awk -F ':' '{print $2}'`
+        refresh_token=`curl -ks ${{ secrets.refresh_token }}|awk -F ':' '{print $2}'`
         echo -e "refresh_token: '$refresh_token'"  >  ~/.config/aliyunpan.yaml
         aliyunpan-cli sync upload_tmp/x86_64_xxb /Share/Frimware/OS/Router/OpenWrt
         echo  

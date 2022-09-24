@@ -137,7 +137,7 @@ jobs:
 
         echo 
         echo -e "🚩   开始同步固件到阿里云网盘：/Share/Frimware 目录"
-        refresh_token=`curl -s ${{ secrets.refresh_token }}|awk -F ':' '{print $2}'`
+        refresh_token=`curl -ks ${{ secrets.refresh_token }}|awk -F ':' '{print $2}'`
         echo -e "refresh_token: '$refresh_token'"  >  ~/.config/aliyunpan.yaml
         aliyunpan-cli sync upload_tmp/K2P  /Share/Frimware/OS/Router/OpenWrt
 
