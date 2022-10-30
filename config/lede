@@ -2582,10 +2582,10 @@ CONFIG_PACKAGE_kmod-batman-adv=y
 CONFIG_BATMAN_ADV_BATMAN_V=y
 CONFIG_BATMAN_ADV_BLA=y
 CONFIG_BATMAN_ADV_DAT=y
-# CONFIG_BATMAN_ADV_NC is not set
+CONFIG_BATMAN_ADV_NC=y
 CONFIG_BATMAN_ADV_MCAST=y
-# CONFIG_BATMAN_ADV_DEBUG is not set
-# CONFIG_BATMAN_ADV_TRACING is not set
+CONFIG_BATMAN_ADV_DEBUG=y
+CONFIG_BATMAN_ADV_TRACING=y
 CONFIG_PACKAGE_kmod-bonding=y
 # CONFIG_PACKAGE_kmod-bpf-test is not set
 # CONFIG_PACKAGE_kmod-dnsresolver is not set
@@ -7177,7 +7177,7 @@ CONFIG_PACKAGE_partx-utils=y
 # CONFIG_PACKAGE_jupp is not set
 # CONFIG_PACKAGE_mg is not set
 # CONFIG_PACKAGE_nano is not set
-# CONFIG_PACKAGE_nano-full is not set
+CONFIG_PACKAGE_nano-full=y
 # CONFIG_PACKAGE_nano-plus is not set
 # CONFIG_PACKAGE_vim is not set
 # CONFIG_PACKAGE_vim-full is not set
