@@ -165,7 +165,7 @@ jobs:
       id: tag
       if: success() && env.UPLOAD_RELEASE == 'true'
       run: |
-        echo "::set-output name=release_tag::$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")"
+        echo "release_tag=$RELEASE_TAG-$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
 
         echo "## Update content" >> release.txt
 
